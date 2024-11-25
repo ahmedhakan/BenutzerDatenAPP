@@ -19,12 +19,14 @@ BenutzerDatenAPP/Page2.xaml.cs
 
 
 Voraussetzungen:
+
 Visual Studio 2022
 
 SQL Server Management Studio 
 
 
 Installation:
+
 Klone das Repository oder lade die Projektdateien herunter.
 Öffne das Projekt in Visual Studio.
 Stelle sicher, dass die Verbindung mit SQL-Datenbank ordnungsgemäß ist.
@@ -32,12 +34,14 @@ Starte das projekt.
 
 
 Verwendete Technologien:
+
 C#: Für die Logik und die Verbindung zur SQL-Datenbank.
 SQL Server: Zum Speichern von Benutzerdaten.
 Windows Forms oder WPF: Für die Benutzeroberfläche (abhängig von der Art des Projekts).
 
 
 Funktionen im Detail:
+
 Daten Hinzufügen: Neue Benutzer können mit einem Formular hinzugefügt werden, indem der Name, Nachname und die Adresse, Telefonnummer und Bild eingegeben werden.
 Daten Ändern: Bestehende Benutzerdaten können bearbeitet und aktualisiert werden.
 Daten Löschen: Benutzer können aus der Datenbank entfernt werden.
