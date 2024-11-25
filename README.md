@@ -20,19 +20,14 @@ SQL Server Management Studio
 
 Installation:
 Klone das Repository oder lade die Projektdateien herunter.
-
 Öffne das Projekt in Visual Studio.
-
 Stelle sicher, dass die Verbindung mit SQL-Datenbank ordnungsgemäß ist.
-
 Starte das projekt.
 
 
 Verwendete Technologien:
 C#: Für die Logik und die Verbindung zur SQL-Datenbank.
-
 SQL Server: Zum Speichern von Benutzerdaten.
-
 Windows Forms oder WPF: Für die Benutzeroberfläche (abhängig von der Art des Projekts).
 
 
