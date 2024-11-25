@@ -58,6 +58,11 @@ Daten Ändern: Bestehende Benutzerdaten können bearbeitet und aktualisiert werd
 Daten Löschen: Benutzer können aus der Datenbank entfernt werden.
 Daten Suchen: Eine Tabelle zeigt alle Benutzerdaten, und Benutzer können nach Name, Nachname oder Adresse suchen.
 
+DB Schema:
+
+
+![Screenshot 2024-11-25 153135](https://github.com/user-attachments/assets/7f4f23a5-8c04-4c1b-9163-8f107336dac3)
+
 Im Anhang finden Sie eine detaillierte Dokumentation des Projekts, einschließlich anschaulicher Abbildungen zur Veranschaulichung.
 
 [BeispielapplikationReport.pdf](https://github.com/user-attachments/files/17904953/BeispielapplikationReport.pdf)
