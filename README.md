@@ -5,11 +5,13 @@ Projekt: Beispielapplikation für Benutzer Daten speicher
 
 Dieses Projekt ermöglicht die Verwaltung von Benutzerdaten (wie Name, Nachname und Adresse) über eine SQL-Datenbank. Es enthält Funktionen, um Benutzerdaten hinzuzufügen, zu ändern, zu löschen sowie eine benutzerfreundliche Oberfläche zum Suchen und Filtern von Benutzerdaten.
 
+
 Funktionen:
 Datenbankanbindung: Eine SQL-Datenbank zur Speicherung von Benutzerdaten.
 Benutzerverwaltung: Benutzer können hinzugefügt, geändert oder gelöscht werden.
 Suche und Filter: Eine Tabelle, die es ermöglicht, Benutzerdaten zu durchsuchen und nach bestimmten Kriterien zu filtern.
 Einfache Bedienoberfläche: Eine übersichtliche Benutzeroberfläche zur Verwaltung und Anzeige der Benutzerdaten.
+
 
 Wichtigsten Code Datein sind:
 
@@ -25,6 +27,7 @@ Visual Studio 2022
 SQL Server Management Studio 
 
 
+
 Installation:
 
 Klone das Repository oder lade die Projektdateien herunter.
@@ -33,11 +36,13 @@ Stelle sicher, dass die Verbindung mit SQL-Datenbank ordnungsgemäß ist.
 Starte das projekt.
 
 
+
 Verwendete Technologien:
 
 C#: Für die Logik und die Verbindung zur SQL-Datenbank.
 SQL Server: Zum Speichern von Benutzerdaten.
 Windows Forms oder WPF: Für die Benutzeroberfläche (abhängig von der Art des Projekts).
+
 
 
 Funktionen im Detail:
