@@ -32,9 +32,15 @@ Installation:
 
 Klone das Repository oder lade die Projektdateien herunter.
 Öffne das Projekt in Visual Studio.
-Stelle sicher, dass die Verbindung mit SQL-Datenbank ordnungsgemäß ist.
-Starte das projekt.
+Stelle sicher, dass die Verbindung mit SQL-Datenbank ordnungsgemäß ist. (Wenn es keine Verbindung macht, klicken sie auf gerät vertrauen (Erster fenster wenn sie SSMS öffnen) und versuchen sie es erneut.)
+Achten sie darauf das in Page2.xaml.cs 23 Zeile und in Page1.xaml.cs 136 Zeile geändert muss, weil ihr gerät name anders ist:
 
+private readonly string connectionString = "Data Source=LAPTOP-89SP8JB6\\SQLEXPRESS;Initial Catalog=BenutzerDaten;Integrated Security=True;TrustServerCertificate=True";
+
+using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-89SP8JB6\\SQLEXPRESS;Initial Catalog=BenutzerDaten;Integrated Security=True;TrustServerCertificate=True"))
+
+Für Data Source= "", müssen sie ihr gerät name hinzufügen.
+        
 
 
 Verwendete Technologien:
