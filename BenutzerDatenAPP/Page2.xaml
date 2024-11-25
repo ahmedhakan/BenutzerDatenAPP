@@ -1,0 +1,108 @@
+﻿<Page x:Class="BenutzerDatenAPP.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BenutzerDatenAPP"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page2">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <!-- Hauptbereich mit der Tabelle -->
+            <RowDefinition Height="Auto"/>
+            <!-- Buttons -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+            <!-- Spalte für die Textboxen -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Titel -->
+        <TextBlock Text="Benutzer-Daten" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,10" 
+                   Grid.Row="0" 
+                   Grid.ColumnSpan="2"/>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="BenutzerDataGrid" 
+                  Grid.Row="1" 
+                  Grid.Column="0"
+                  AutoGenerateColumns="True" 
+                  IsReadOnly="True" 
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Margin="0,10,0,10" />
+
+        <!-- Edit StackPanel (Textfelder) für die Bearbeitung von Benutzerdaten -->
+        <StackPanel x:Name="EditStackPanel" 
+                    Orientation="Vertical" 
+                    Margin="10" 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Name" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="NameTextBox" Width="150" Margin="5" Text="Name"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Nachname" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="NachnameTextBox" Width="150" Margin="5" Text="Nachname"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Straße" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="StrasseTextBox" Width="150" Margin="5" Text="Straße"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="PLZ" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="PLZTextBox" Width="150" Margin="5" Text="PLZ"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Ort" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="OrtTextBox" Width="150" Margin="5" Text="Ort"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Telefonnummer" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="TelefonnummerTextBox" Width="150" Margin="5" Text="Telefonnummer"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Bild" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="BenutzerbildTextBox" Width="150" Margin="5" Text="Bild"/>
+            </StackPanel>
+            <Button Content="Daten Speichern" Width="100" Margin="5" Click="SaveUpdatedData_Click"/>
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="2" 
+                    Margin="0,10,0,0">
+            <Button Content="Aktualisieren" 
+                    Width="100" 
+                    Margin="5" 
+                    Click="Aktualisieren_Click"/>
+            <Button Content="Löschen" 
+                    Width="100" 
+                    Margin="5" 
+                    Click="Loeschen_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Grid.Row="2" Grid.ColumnSpan="2">
+            <Label Content="Suchen" VerticalAlignment="Center" Width="100" />
+            <TextBox x:Name="SearchTextBox" Width="200" Margin="5" 
+             TextChanged="SearchTextBox_TextChanged" 
+             Text="Name, Nachname..." 
+             GotFocus="SearchTextBox_GotFocus" 
+             LostFocus="SearchTextBox_LostFocus" />
+        </StackPanel>
+
+    </Grid>
+</Page>
+
