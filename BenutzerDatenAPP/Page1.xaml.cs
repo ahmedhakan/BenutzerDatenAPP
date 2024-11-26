@@ -104,7 +104,7 @@ namespace BenutzerDatenAPP
                 return;
             }
 
-            byte[] benutzerBildBytes = null;
+            string benutzerBildPfad = null;
 
             // Überprüfe, ob ein Bild ausgewählt wurde
             if (!string.IsNullOrEmpty(BenutzerbildTextBox.Text) && BenutzerbildTextBox.Text != "Kein Bild ausgewählt.")
@@ -115,7 +115,7 @@ namespace BenutzerDatenAPP
 
                     if (File.Exists(imagePath))
                     {
-                        benutzerBildBytes = File.ReadAllBytes(imagePath);
+                        benutzerBildPfad = imagePath;
                     }
                     else
                     {
@@ -146,7 +146,7 @@ namespace BenutzerDatenAPP
                         cmd.Parameters.AddWithValue("@PLZ", PLZTextBox.Text);
                         cmd.Parameters.AddWithValue("@Ort", OrtTextBox.Text);
                         cmd.Parameters.AddWithValue("@Telefonnummer", TelefonnummerTextBox.Text);
-                        cmd.Parameters.Add("@Benutzerbild", SqlDbType.VarBinary).Value = benutzerBildBytes ?? (object)DBNull.Value;
+                        cmd.Parameters.AddWithValue("@Benutzerbild", (object)benutzerBildPfad ?? DBNull.Value);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -159,6 +159,7 @@ namespace BenutzerDatenAPP
                 MessageBox.Show($"Fehler beim Hinzufügen des Benutzers: {ex.Message}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
 
         private IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
@@ -206,6 +207,7 @@ namespace BenutzerDatenAPP
                 MessageBox.Show($"Fehler beim Aufnehmen des Bildes: {ex.Message}");
             }
         }
+
 
 
     }

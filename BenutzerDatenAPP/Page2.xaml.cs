@@ -30,41 +30,49 @@ namespace BenutzerDatenAPP
 
         // Methode zum Laden der Daten
         private void LadeDaten(string filter = "")
-{
-    try
-    {
-        using (SqlConnection connection = new SqlConnection(connectionString))
         {
-            connection.Open();
-            string query = "SELECT [Name], [Nachname], [Straße], [PLZ], [Ort], [Telefonnummer],[Benutzerbild] FROM [dbo].[Benutzer]";
-
-            // Filter hinzufügen, wenn ein Suchbegriff angegeben wurde
-            if (!string.IsNullOrEmpty(filter))
+            try
             {
-                query += " WHERE [Name] LIKE @Filter OR [Nachname] LIKE @Filter OR [Straße] LIKE @Filter OR [PLZ] LIKE @Filter OR [Ort] LIKE @Filter OR [Telefonnummer] LIKE @Filter  OR [Benutzerbild] LIKE @Filter";
-            }
-
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                if (!string.IsNullOrEmpty(filter))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@Filter", $"%{filter}%");
+                    connection.Open();
+                    string query = "SELECT [Name], [Nachname], [Straße], [PLZ], [Ort], [Telefonnummer],[Benutzerbild] FROM [dbo].[Benutzer]";
+
+                    // Filter hinzufügen, wenn ein Suchbegriff angegeben wurde
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        query += " WHERE [Name] LIKE @Filter OR [Nachname] LIKE @Filter OR [Straße] LIKE @Filter OR [PLZ] LIKE @Filter OR [Ort] LIKE @Filter OR [Telefonnummer] LIKE @Filter  OR [Benutzerbild] LIKE @Filter";
+                    }
+
+                    string bild = BenutzerbildTextBox.Text;
+
+                    // Kürzen des Dateinamens auf maximal 255 Zeichen, falls er länger ist
+                    if (!string.IsNullOrEmpty(bild) && bild.Length > 255)
+                    {
+                        bild = bild.Substring(0, 255); // Nur die ersten 255 Zeichen speichern
+                    }
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        if (!string.IsNullOrEmpty(filter))
+                        {
+                            command.Parameters.AddWithValue("@Filter", $"%{filter}%");
+                        }
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        // Daten an DataGrid binden
+                        BenutzerDataGrid.ItemsSource = dataTable.DefaultView;
+                    }
                 }
-
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                // Daten an DataGrid binden
-                BenutzerDataGrid.ItemsSource = dataTable.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Laden der Daten: {ex.Message}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show($"Fehler beim Laden der Daten: {ex.Message}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
-    }
-}
 
 
         // Event-Handler für den "Aktualisieren"-Button
@@ -127,7 +135,13 @@ namespace BenutzerDatenAPP
                 string plz = PLZTextBox.Text;
                 string ort = OrtTextBox.Text;
                 string telefonnummer = TelefonnummerTextBox.Text;
-                string bild= BenutzerbildTextBox.Text;
+                string bild = BenutzerbildTextBox.Text;
+
+                // Kürzen des Dateinamens auf maximal 100 Zeichen, falls er länger ist
+                if (!string.IsNullOrEmpty(bild) && bild.Length > 100)
+                {
+                    bild = bild.Substring(0, 100); // Nur die ersten 100 Zeichen speichern
+                }
 
                 DataRowView selectedRow = BenutzerDataGrid.SelectedItem as DataRowView;
                 if (selectedRow != null)
@@ -149,22 +163,15 @@ namespace BenutzerDatenAPP
                             command.Parameters.AddWithValue("@PLZ", plz);
                             command.Parameters.AddWithValue("@Ort", ort);
                             command.Parameters.AddWithValue("@Telefonnummer", telefonnummer);
-                            command.Parameters.AddWithValue("@Benutzerbild", bild);
-
-                            if (bild != null)
-                            {
-                                command.Parameters.AddWithValue("@Benutzerbild", bild); // `bild` sollte ein Byte-Array sein
-                            }
-                            else
-                            {
-                                command.Parameters.AddWithValue("@Benutzerbild", DBNull.Value); // Wenn kein Bild hochgeladen wurde
-                            }
+                            command.Parameters.AddWithValue("@Benutzerbild", string.IsNullOrEmpty(bild) ? (object)DBNull.Value : bild); // Nur den Dateinamen speichern
+                            command.Parameters.AddWithValue("@OriginalName", originalName);
+                            command.Parameters.AddWithValue("@OriginalNachname", originalNachname);
 
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
                                 MessageBox.Show("Datensatz erfolgreich aktualisiert.", "Erfolg", MessageBoxButton.OK, MessageBoxImage.Information);
-                                LadeDaten(); // Aktualisiere die Daten
+                                LadeDaten(); // Daten nach dem Speichern neu laden
                                 EditStackPanel.Visibility = Visibility.Collapsed; // Textfelder wieder ausblenden
                             }
                             else
@@ -180,6 +187,7 @@ namespace BenutzerDatenAPP
                 MessageBox.Show($"Fehler beim Speichern der Daten: {ex.Message}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         // Event-Handler für den "Löschen"-Button
         private void Loeschen_Click(object sender, RoutedEventArgs e)
@@ -249,6 +257,7 @@ namespace BenutzerDatenAPP
 
             // Optional: Weitere Aktionen, wenn der Fokus verloren wird
         }
+
 
 
     }
