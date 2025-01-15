@@ -23,6 +23,7 @@ namespace BenutzerDatenAPP
         public MainWindow()
         {
             InitializeComponent();
+            Main.Content = new Page1();
         }
 
         private void BeimKlickenButton1(object sender, RoutedEventArgs e)

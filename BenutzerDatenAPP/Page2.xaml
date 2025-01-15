@@ -88,11 +88,11 @@
             <Button Content="Aktualisieren" 
                     Width="100" 
                     Margin="5" 
-                    Click="Aktualisieren_Click"/>
+                    Click="Aktualisieren_Click" Background="#154C79" Foreground="White"/>
             <Button Content="Löschen" 
                     Width="100" 
                     Margin="5" 
-                    Click="Loeschen_Click"/>
+                    Click="Loeschen_Click" Background="#154C79" Foreground="White"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Grid.Row="2" Grid.ColumnSpan="2">
             <Label Content="Suchen" VerticalAlignment="Center" Width="100" />
