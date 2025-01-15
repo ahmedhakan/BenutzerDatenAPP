@@ -1,6 +1,7 @@
 Projekt: Beispielapplikation für Benutzer Daten speicher
 
-![Screenshot 2024-11-25 155042](https://github.com/user-attachments/assets/8bf4be86-f557-499b-a01c-6a5cf375d759)
+![1](https://github.com/user-attachments/assets/60f5ee34-b66b-4539-9a03-106bf02c716c)
+
 
 
 Dieses Projekt ermöglicht die Verwaltung von Benutzerdaten (wie Name, Nachname und Adresse) über eine SQL-Datenbank. Es enthält Funktionen, um Benutzerdaten hinzuzufügen, zu ändern, zu löschen sowie eine benutzerfreundliche Oberfläche zum Suchen und Filtern von Benutzerdaten.
@@ -12,7 +13,8 @@ Benutzerverwaltung: Benutzer können hinzugefügt, geändert oder gelöscht werd
 Suche und Filter: Eine Tabelle, die es ermöglicht, Benutzerdaten zu durchsuchen und nach bestimmten Kriterien zu filtern.
 Einfache Bedienoberfläche: Eine übersichtliche Benutzeroberfläche zur Verwaltung und Anzeige der Benutzerdaten.
 
-![resim](https://github.com/user-attachments/assets/0c5aaa9a-b218-4c5c-84f9-9a266d596f89)
+
+![2](https://github.com/user-attachments/assets/5ada3847-9026-42a2-be12-8fd8b0fd062d)
 
 
 
