@@ -38,11 +38,11 @@ Hier sind einige der besten Funktionen des Projekts:
 
 * Beispiel:
 
-<p>4. Führe die Anwendung aus.</p>
-
 ```
 private readonly string connectionString = "Data Source=DEIN-GERAET-NAME\\SQLEXPRESS;Initial Catalog=BenutzerDaten;Integrated Security=True;TrustServerCertificate=True";
 ```
+
+<p>4. Führe die Anwendung aus.</p>
 
 <h2>📟 Verwendete Technologien:</h2>
 
