@@ -1,73 +1,63 @@
-Projekt: Beispielapplikation für Benutzer Daten speicher
-
-![1](https://github.com/user-attachments/assets/60f5ee34-b66b-4539-9a03-106bf02c716c)
+<h1 align="center" id="title">Benutzer Daten APP</h1>
 
 
 
-Dieses Projekt ermöglicht die Verwaltung von Benutzerdaten (wie Name, Nachname und Adresse) über eine SQL-Datenbank. Es enthält Funktionen, um Benutzerdaten hinzuzufügen, zu ändern, zu löschen sowie eine benutzerfreundliche Oberfläche zum Suchen und Filtern von Benutzerdaten.
+<p id="description">Benutzer Daten App ist eine Desktop-Anwendung zur Verwaltung von Benutzerdaten (Name, Nachname, Adresse, Telefonnummer, Bild) mit einer SQL-Datenbank. Die Applikation bietet eine benutzerfreundliche Oberfläche für grundlegende CRUD-Operationen (Erstellen. Lesen. Aktualisieren. Löschen) sowie Such- und Filterfunktionen.</p>
+
+<h2>Projekt Screenshots:</h2>
+
+![403475355-60f5ee34-b66b-4539-9a03-106bf02c716c](https://github.com/user-attachments/assets/00b7f8fe-652b-4aac-b6e0-b524a2f0bbb1)
 
 
-Funktionen:
-Datenbankanbindung: Eine SQL-Datenbank zur Speicherung von Benutzerdaten.
-Benutzerverwaltung: Benutzer können hinzugefügt, geändert oder gelöscht werden.
-Suche und Filter: Eine Tabelle, die es ermöglicht, Benutzerdaten zu durchsuchen und nach bestimmten Kriterien zu filtern.
-Einfache Bedienoberfläche: Eine übersichtliche Benutzeroberfläche zur Verwaltung und Anzeige der Benutzerdaten.
+![403475448-5ada3847-9026-42a2-be12-8fd8b0fd062d](https://github.com/user-attachments/assets/39ddf96c-b0bf-4f87-903e-d46344d3326b)
+
+  
+  
+<h2>🏢 Funktionen</h2>
+
+Hier sind einige der besten Funktionen des Projekts:
+
+*   Datenbankanbindung: Speichert und verwaltet Benutzerdaten in einer SQL-Datenbank.
+*   Benutzerverwaltung: Hinzufügen Bearbeiten und Löschen von Benutzerdaten.
+*   Suche und Filter: Ermöglicht das Durchsuchen und Filtern von Daten nach verschiedenen Kriterien.
+*   Benutzerfreundliche Oberfläche: Eine übersichtliche UI für effiziente Bedienung.
+
+<h2>🛠️ Installationsschritte:</h2>
+
+<p>1. Klone das Repository oder lade die Dateien herunter.</p>
+
+<p>2. Öffne das Projekt in Visual Studio 2022.</p>
+
+<p>3. Öffne SQL Server Management Studio und vertraue deinem Gerät (bei entsprechender Abfrage).</p>
+
+* Passe die Verbindungszeichenfolge in folgenden Dateien an deinen Gerätenamen an.
+
+* Page1.xaml.cs (Zeile 136)
+
+* Page2.xaml.cs (Zeile 23)
+
+* Beispiel:
+
+<p>4. Führe die Anwendung aus.</p>
+
+```
+private readonly string connectionString = "Data Source=DEIN-GERAET-NAME\\SQLEXPRESS;Initial Catalog=BenutzerDaten;Integrated Security=True;TrustServerCertificate=True";
+```
+
+<h2>📟 Verwendete Technologien:</h2>
+
+* C#: Für die Anwendung und die Verbindung zur SQL-Datenbank.
+* SQL Server: Speicherung und Verwaltung der Benutzerdaten.
+* WPF: Erstellung der Benutzeroberfläche.
+
+  
+  
+<h2>💻 Gebaut mit</h2>
+
+Im Projekt verwendete Technologien:
+
+*   Visual Studio 2022
+*   SQL Server Management Studio (SSMS)
 
 
-![2](https://github.com/user-attachments/assets/5ada3847-9026-42a2-be12-8fd8b0fd062d)
 
-
-
-Wichtigsten Code Datein sind:
-
-BenutzerDatenAPP/Page1.xaml.cs
-
-BenutzerDatenAPP/Page2.xaml.cs
-
-
-Voraussetzungen:
-
-Visual Studio 2022
-
-SQL Server Management Studio 
-
-
-
-Installation:
-
-Klone das Repository oder lade die Projektdateien herunter.
-Öffne das Projekt in Visual Studio.
-Stelle sicher, dass die Verbindung mit SQL-Datenbank ordnungsgemäß ist. (Wenn es keine Verbindung macht, klicken sie auf gerät vertrauen (Erster fenster wenn sie SSMS öffnen) und versuchen sie es erneut.)
-Achten sie darauf das in Page2.xaml.cs 23 Zeile und in Page1.xaml.cs 136 Zeile geändert muss, weil ihr gerät name anders ist:
-
-private readonly string connectionString = "Data Source=LAPTOP-89SP8JB6\\SQLEXPRESS;Initial Catalog=BenutzerDaten;Integrated Security=True;TrustServerCertificate=True";
-
-using (SqlConnection con = new SqlConnection("Data Source=LAPTOP-89SP8JB6\\SQLEXPRESS;Initial Catalog=BenutzerDaten;Integrated Security=True;TrustServerCertificate=True"))
-
-Für Data Source= "", müssen sie ihr gerät name hinzufügen.
-        
-
-
-Verwendete Technologien:
-
-C#: Für die Logik und die Verbindung zur SQL-Datenbank.
-SQL Server: Zum Speichern von Benutzerdaten.
-Windows Forms oder WPF: Für die Benutzeroberfläche (abhängig von der Art des Projekts).
-
-
-
-Funktionen im Detail:
-
-Daten Hinzufügen: Neue Benutzer können mit einem Formular hinzugefügt werden, indem der Name, Nachname und die Adresse, Telefonnummer und Bild eingegeben werden.
-Daten Ändern: Bestehende Benutzerdaten können bearbeitet und aktualisiert werden.
-Daten Löschen: Benutzer können aus der Datenbank entfernt werden.
-Daten Suchen: Eine Tabelle zeigt alle Benutzerdaten, und Benutzer können nach Name, Nachname oder Adresse suchen.
-
-DB Schema:
-
-
-![Screenshot 2024-11-25 153135](https://github.com/user-attachments/assets/7f4f23a5-8c04-4c1b-9163-8f107336dac3)
-
-Im Anhang finden Sie eine detaillierte Dokumentation des Projekts, einschließlich anschaulicher Abbildungen zur Veranschaulichung.
-
-[BeispielapplikationReport.pdf](https://github.com/user-attachments/files/17904953/BeispielapplikationReport.pdf)
